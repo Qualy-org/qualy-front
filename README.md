@@ -1,4 +1,4 @@
-![src/img/qualy.png](Qualy Boilerplate)
+![https://raw.githubusercontent.com/willianjusten/qualy/master/src/img/qualy.png](Qualy Boilerplate)
 
 # Qualy Boilerplate
 
