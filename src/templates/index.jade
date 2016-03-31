@@ -1,7 +1,7 @@
 doctype html
 html
     head
-        title Title Site
+        title Qualy Boilerplate
         meta(charset='UTF-8')
         meta(http-equiv='X-UA-Compatible', content='IE=edge')
         meta(name='description' content="meta desc")
@@ -9,9 +9,17 @@ html
         link(rel="stylesheet", type="text/css", href="css/main.css")
 
     body
+        .container
+            //- put your content here
+            h1 Qualy Boilerplate
+            img(src="img/qualy.png", alt="Qualy Boilerplate")
 
-        //- put your content here
-        h1 Eventos Frontend Brasil
-        img(src="img/eventos.jpg", alt="Eventos Frontend")
+            - var tech = ['ES6', 'Gulp', 'Stylus', 'Jade', 'Browsersync', 'Husky Hooks', 'JSCS']
+
+            h2 Technologies:
+
+            ul
+                each val in tech
+                    li= val
 
         script(type="text/javascript", src="js/main.js")
