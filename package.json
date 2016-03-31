@@ -1,10 +1,10 @@
 {
-  "name": "eventos",
+  "name": "Qualy",
   "version": "0.0.1",
-  "description": "Lista de eventos, meetups, encontros e qualquer tipo de aglomeração de frontend.",
+  "description": "A simple boilerplate with ES6, Gulp, Jade, Stylus and Browsersync.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frontendbr/eventos.git"
+    "url": "git+https://github.com/willianjusten/qualy.git"
   },
   "scripts": {
     "lint": "./node_modules/.bin/jscs src && ./node_modules/.bin/jshint src",
@@ -21,9 +21,9 @@
   "author": "Willian Justen de Vasconcellos <willianjustenqui@gmail.com> (http://willianjusten.com.br/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/frontendbr/eventos/issues"
+    "url": "https://github.com/willianjusten/qualy/issues"
   },
-  "homepage": "https://github.com/frontendbr/eventos#readme",
+  "homepage": "https://github.com/willianjusten/qualy#readme",
   "devDependencies": {
     "autoprefixer-stylus": "^0.9.2",
     "babel": "^6.5.2",
