@@ -87,6 +87,10 @@ To help you, this project has a `npm run fix` command to fix all jscs errors.
 - `gulp pages`: deploy files to gh-pages
 - `gulp deploys`: run all tasks and deploy files to gh-pages
 
+### Thanks
+
+Thanks to [@Diessicode](https://twitter.com/diessicode/status/715381477286891520) for the awesome idea to put this logo.
+
 ### License
 
 This boilerplate is free and open source software, distributed under the The MIT License. So feel free to use this to create your site without linking back to me or using a disclaimer.
