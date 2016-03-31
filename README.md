@@ -1,10 +1,6 @@
-<p align="center">
-  <img src="https://avatars0.githubusercontent.com/u/16963863?v=3&s=200.jpg" alt="FrontEndBR" width="230" />
-</p>
+# Qualy Boilerplate
 
-# Eventos
-
-This projects uses Jade, Stylus, Gulp and Browsersync.
+This projects uses ES6, Jade, Stylus, Gulp and Browsersync. The main objective of this boilerplate is to ensure Quality to our code with Code Standards and Hooks to prevent messy codes to be committed or pushed.
 
 Maybe you want to read about them:
 - [GulpJS](http://gulpjs.com/)
@@ -12,7 +8,7 @@ Maybe you want to read about them:
 - [Stylus](http://learnboost.github.io/stylus/)
 - [Browsersync](https://www.browsersync.io/)
 
-For grid system uses [Jeet](http://jeet.gs/) with some help from [Kouto Swiss](http://kouto-swiss.io/) for animations, reset and a lot of great mixins. And [Rupture](https://github.com/jenius/rupture) for responsive utilities.
+For grid system uses [Jeet](http://jeet.gs/) with some help from [Kouto Swiss](http://kouto-swiss.io/) for animations, reset and a lot of great mixins. [Rupture](https://github.com/jenius/rupture) for responsive utilities and uses ITCSS to build the CSS Architecture.
 
 ## Getting Started
 
@@ -88,3 +84,9 @@ To help you, this project has a `npm run fix` command to fix all jscs errors.
 - `gulp watch`: call for watch files
 - `gulp pages`: deploy files to gh-pages
 - `gulp deploys`: run all tasks and deploy files to gh-pages
+
+### License
+
+This boilerplate is free and open source software, distributed under the The MIT License. So feel free to use this to create your site without linking back to me or using a disclaimer.
+
+If you’d like to give me credit somewhere on your blog or tweet a shout out to [@willian_justen](https://twitter.com/willian_justen), that would be pretty sweet.
