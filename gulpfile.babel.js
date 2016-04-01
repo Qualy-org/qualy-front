@@ -79,7 +79,7 @@ gulp.task('watch', () => {
     gulp.watch(srcPaths.img, ['images']);
 });
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', () => {
     var files = [
         buildPaths.build
     ];
