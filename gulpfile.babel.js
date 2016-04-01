@@ -4,6 +4,7 @@ import gulp from 'gulp';
 import plumber from 'gulp-plumber';
 import stylus from 'gulp-stylus';
 import cssnano from 'gulp-cssnano';
+import gcmq from 'gulp-group-css-media-queries';
 import sourcemaps from 'gulp-sourcemaps';
 import jeet from 'jeet';
 import rupture from 'rupture';
@@ -40,6 +41,7 @@ gulp.task('css', () => {
             use: [koutoSwiss(), prefixer(), jeet(), rupture()],
             compress: true
         }))
+        .pipe(gcmq())
         .pipe(cssnano()) 
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(buildPaths.css));
