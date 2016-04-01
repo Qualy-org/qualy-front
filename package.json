@@ -12,10 +12,7 @@
     "precommit": "npm run lint",
     "prepush": "npm run lint"
   },
-  "keywords": [
-    "eventos",
-    "meetups",
-    "encontros",
+  "keywords": [ 
     "frontend"
   ],
   "author": "Willian Justen de Vasconcellos <willianjustenqui@gmail.com> (http://willianjusten.com.br/)",
