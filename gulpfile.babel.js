@@ -10,16 +10,18 @@ import jeet from 'jeet';
 import rupture from 'rupture';
 import koutoSwiss from 'kouto-swiss';
 import prefixer from 'autoprefixer-stylus';
+import babel from 'rollup-plugin-babel';
+import rollup from 'gulp-rollup';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
-import babel from 'gulp-babel';
 import jade from 'gulp-jade';
 import imagemin from 'gulp-imagemin';
 import browserSync from 'browser-sync';
 import ghPages from 'gulp-gh-pages';
+import rollupConfig from './rollup.config';
 
 const srcPaths = {
-    js: 'src/js/**/*.js',
+    js: 'src/js/main.js',
     css: 'src/styl/**/*.styl',
     mainStyl: 'src/styl/main.styl',
     jade: 'src/templates/*.jade',
@@ -42,7 +44,7 @@ gulp.task('css', () => {
             compress: true
         }))
         .pipe(gcmq())
-        .pipe(cssnano()) 
+        .pipe(cssnano())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(buildPaths.css));
 });
@@ -50,10 +52,7 @@ gulp.task('css', () => {
 gulp.task('js', () => {
     gulp.src(srcPaths.js)
         .pipe(plumber())
-        .pipe(concat('main.js'))
-        .pipe(babel({
-            presets: ['es2015']
-        }))
+        .pipe(rollup(rollupConfig))
         .pipe(uglify())
         .pipe(gulp.dest(buildPaths.js));
 });

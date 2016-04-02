@@ -1,3 +1,7 @@
+'use strict';
+
+import hello from './hello';
+
 // arrow function
 [1, 2, 3].map(num => num * 2);
 
@@ -9,3 +13,5 @@ console.log(`Hey ${bla}`);
 
 // spread
 console.log(...[1, 2, 3]);
+
+hello('Qualy');
