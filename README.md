@@ -1,7 +1,5 @@
 <img src="https://raw.githubusercontent.com/willianjusten/qualy/master/src/img/qualy.png" alt="Qualy">
 
-# Qualy Boilerplate
-
 This projects uses ES6, Jade, Stylus, Gulp and Browsersync. The main objective of this boilerplate is to ensure Quality to our code with Code Standards and Hooks to prevent messy codes to be committed or pushed.
 
 Maybe you want to read about them:
