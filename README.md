@@ -22,7 +22,7 @@ First of all, install the dependencies to run this boilerplate.
 
 ```sh
 # Clone this repository
-$ git clone git@github.com:willianjusten/qualy.git
+$ git clone git@github.com:Qualy-org/qualy.git
 $ cd qualy
 
 # install dependencies
