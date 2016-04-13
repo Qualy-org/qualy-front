@@ -1,6 +1,6 @@
-import babel from 'rollup-plugin-babel';
+const babel = require('rollup-plugin-babel');
 
-export default {
+module.exports = {
     plugins: [babel({
         exclude: 'node_modules/**',
         babelrc: false,
