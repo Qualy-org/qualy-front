@@ -36,6 +36,7 @@ const buildPaths = {
 
 gulp.task('css', () => {
     gulp.src(srcPaths.mainStyl)
+        .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(stylus({
             use: [koutoSwiss(), prefixer(), jeet(), rupture()],
