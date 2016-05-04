@@ -44,7 +44,7 @@ gulp.task('css', () => {
         }))
         .pipe(gcmq())
         .pipe(cssnano())
-        .pipe(sourcemaps.write())
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(buildPaths.css));
 });
 
@@ -82,7 +82,7 @@ gulp.task('watch', () => {
 });
 
 gulp.task('browser-sync', () => {
-    var files = [
+    let files = [
         buildPaths.build
     ];
 
@@ -94,7 +94,7 @@ gulp.task('browser-sync', () => {
 });
 
 gulp.task('pages', () => {
-    gulp.src(buildPaths.build)
+    gulp.src([buildPaths.build, `!${buildPaths.build}.map`])
         .pipe(ghPages());
 });
 
