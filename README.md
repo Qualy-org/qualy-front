@@ -51,19 +51,19 @@ With the commands above, you have everything to start.
     ├── js
     │   ├── main.js
     ├── styl
-    │   ├── _base
+    │   ├── base
     |   |   └── _base.styl
-    |   ├── _components
+    |   ├── components
     │   |   └── _components.styl
-    |   ├── _generic
+    |   ├── generic
     │   |   └── _generic.styl
-    |   ├── _objects
+    |   ├── objects
     │   |   └── _objects.styl
-    |   ├── _settings
+    |   ├── settings
     │   |   └── _settings.styl
-    |   ├── _tools
+    |   ├── tools
     │   |   └── _tools.styl
-    |   ├── _trumps
+    |   ├── trumps
     │   |   └── _trumps.styl
     │   └── main.styl
     └── templates
