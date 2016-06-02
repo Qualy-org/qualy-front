@@ -51,13 +51,20 @@ With the commands above, you have everything to start.
     ├── js
     │   ├── main.js
     ├── styl
-    │   ├── _base.styl
-    │   ├── _components.styl
-    │   ├── _generic.styl
-    │   ├── _objects.styl
-    │   ├── _settings.styl
-    │   ├── _tools.styl
-    │   ├── _trumps.styl
+    │   ├── base
+    |   |   └── _base.styl
+    |   ├── components
+    │   |   └── _components.styl
+    |   ├── generic
+    │   |   └── _generic.styl
+    |   ├── objects
+    │   |   └── _objects.styl
+    |   ├── settings
+    │   |   └── _settings.styl
+    |   ├── tools
+    │   |   └── _tools.styl
+    |   ├── trumps
+    │   |   └── _trumps.styl
     │   └── main.styl
     └── templates
         └── index.jade
