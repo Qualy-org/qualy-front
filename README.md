@@ -90,6 +90,7 @@ To help you, this project has a `npm run fix` command to fix all jscs errors.
 - `gulp browser-sync`: inicialize a server
 - `gulp watch`: call for watch files
 - `gulp pages`: deploy files to gh-pages
+- `gulp test`: initialize server and run both performance and code complexity tests
 - `gulp deploy`: run all tasks and deploy files to gh-pages
 
 ### Thanks
