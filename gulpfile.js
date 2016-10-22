@@ -16,7 +16,10 @@ const jade = require('gulp-jade');
 const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync');
 const ghPages = require('gulp-gh-pages');
+const sitespeedio = require('gulp-sitespeedio');
+const plato = require('gulp-plato');
 const rollupConfig = require('./rollup.config');
+const eslintConfig = require('./.eslintrc');
 
 const srcPaths = {
     js: 'src/js/main.js',
@@ -31,7 +34,10 @@ const buildPaths = {
     js: 'build/js/',
     css: 'build/css/',
     jade: 'build/',
-    img: 'build/img'
+    img: 'build/img',
+    tests: { 
+        perf: 'tests/perf',
+        complexity: 'tests/complexity'    }
 };
 
 gulp.task('css', () => {
