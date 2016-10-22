@@ -112,5 +112,18 @@ gulp.task('test:perf', sitespeedio({
     html: true
 }));
 
+gulp.task('test:complexity', () => gulp.src(srcPaths.js)
+    .pipe(plato(buildPaths.tests.complexity, {
+        eslint: eslintConfig,
+        complexity: {
+            errorsOnly : false,
+            cyclomatic : 3,
+            halstead : 10,
+            maintainability : 90,
+            trycatch : true
+        }
+})));
+
 gulp.task('default', ['css', 'jade', 'js', 'images', 'watch', 'browser-sync']);
+gulp.task('test', ['browser-sync', 'test:perf', 'test:complexity']);
 gulp.task('deploy', ['css', 'jade', 'js', 'images', 'pages']);
