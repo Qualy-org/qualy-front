@@ -106,7 +106,7 @@ gulp.task('pages', () => {
 });
 
 gulp.task('test:perf', sitespeedio({
-    url: 'http://localhost:3004', 
+    url: 'http://localhost:3000', 
     resultBaseDir: buildPaths.tests.perf, 
     suppressDomainFolder: true, 
     html: true
