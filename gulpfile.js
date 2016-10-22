@@ -37,7 +37,8 @@ const buildPaths = {
     img: 'build/img',
     tests: { 
         perf: 'tests/perf',
-        complexity: 'tests/complexity'    }
+        complexity: 'tests/complexity'
+    }
 };
 
 gulp.task('css', () => {
@@ -103,6 +104,13 @@ gulp.task('pages', () => {
     gulp.src([buildPaths.build, `!${buildPaths.build}.map`])
         .pipe(ghPages());
 });
+
+gulp.task('test:perf', sitespeedio({
+    url: 'http://localhost:3004', 
+    resultBaseDir: buildPaths.tests.perf, 
+    suppressDomainFolder: true, 
+    html: true
+}));
 
 gulp.task('default', ['css', 'jade', 'js', 'images', 'watch', 'browser-sync']);
 gulp.task('deploy', ['css', 'jade', 'js', 'images', 'pages']);
