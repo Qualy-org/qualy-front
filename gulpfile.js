@@ -16,7 +16,10 @@ const jade = require('gulp-jade');
 const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync');
 const ghPages = require('gulp-gh-pages');
+const sitespeedio = require('gulp-sitespeedio');
+const plato = require('gulp-plato');
 const rollupConfig = require('./rollup.config');
+const eslintConfig = require('./.eslintrc');
 
 const srcPaths = {
     js: 'src/js/main.js',
@@ -31,7 +34,11 @@ const buildPaths = {
     js: 'build/js/',
     css: 'build/css/',
     jade: 'build/',
-    img: 'build/img'
+    img: 'build/img',
+    tests: { 
+        perf: 'tests/perf',
+        complexity: 'tests/complexity'
+    }
 };
 
 gulp.task('css', () => {
@@ -98,5 +105,25 @@ gulp.task('pages', () => {
         .pipe(ghPages());
 });
 
+gulp.task('test:perf', sitespeedio({
+    url: 'http://localhost:3000', 
+    resultBaseDir: buildPaths.tests.perf, 
+    suppressDomainFolder: true, 
+    html: true
+}));
+
+gulp.task('test:complexity', () => gulp.src(srcPaths.js)
+    .pipe(plato(buildPaths.tests.complexity, {
+        eslint: eslintConfig,
+        complexity: {
+            errorsOnly : false,
+            cyclomatic : 3,
+            halstead : 10,
+            maintainability : 90,
+            trycatch : true
+        }
+})));
+
 gulp.task('default', ['css', 'jade', 'js', 'images', 'watch', 'browser-sync']);
+gulp.task('test', ['browser-sync', 'test:perf', 'test:complexity']);
 gulp.task('deploy', ['css', 'jade', 'js', 'images', 'pages']);
