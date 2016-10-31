@@ -12,7 +12,7 @@ const koutoSwiss = require('kouto-swiss');
 const prefixer = require('autoprefixer-stylus');
 const rollup = require('gulp-rollup');
 const uglify = require('gulp-uglify');
-const jade = require('gulp-jade');
+const pug = require('gulp-pug');
 const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync');
 const ghPages = require('gulp-gh-pages');
@@ -25,7 +25,7 @@ const srcPaths = {
     js: 'src/js/main.js',
     css: 'src/styl/**/*.styl',
     mainStyl: 'src/styl/main.styl',
-    jade: 'src/templates/**/!(_)*.jade',
+    pug: 'src/templates/**/!(_)*.pug',
     img: 'src/img/**/*'
 };
 
@@ -33,9 +33,9 @@ const buildPaths = {
     build: 'build/**/*',
     js: 'build/js/',
     css: 'build/css/',
-    jade: 'build/',
+    pug: 'build/',
     img: 'build/img',
-    tests: { 
+    tests: {
         perf: 'tests/perf',
         complexity: 'tests/complexity'
     }
@@ -63,11 +63,11 @@ gulp.task('js', () => {
         .pipe(gulp.dest(buildPaths.js));
 });
 
-gulp.task('jade', () => {
-    gulp.src(srcPaths.jade)
+gulp.task('pug', () => {
+    gulp.src(srcPaths.pug)
         .pipe(plumber())
-        .pipe(jade())
-        .pipe(gulp.dest(buildPaths.jade));
+        .pipe(pug())
+        .pipe(gulp.dest(buildPaths.pug));
 });
 
 gulp.task('images', () => {
@@ -82,7 +82,7 @@ gulp.task('images', () => {
 });
 
 gulp.task('watch', () => {
-    gulp.watch(srcPaths.jade, ['jade']);
+    gulp.watch(srcPaths.pug, ['pug']);
     gulp.watch(srcPaths.css, ['css']);
     gulp.watch(srcPaths.js, ['js']);
     gulp.watch(srcPaths.img, ['images']);
@@ -106,9 +106,9 @@ gulp.task('pages', () => {
 });
 
 gulp.task('test:perf', sitespeedio({
-    url: 'http://localhost:3000', 
-    resultBaseDir: buildPaths.tests.perf, 
-    suppressDomainFolder: true, 
+    url: 'http://localhost:3000',
+    resultBaseDir: buildPaths.tests.perf,
+    suppressDomainFolder: true,
     html: true
 }));
 
@@ -124,6 +124,6 @@ gulp.task('test:complexity', () => gulp.src(srcPaths.js)
         }
 })));
 
-gulp.task('default', ['css', 'jade', 'js', 'images', 'watch', 'browser-sync']);
+gulp.task('default', ['css', 'pug', 'js', 'images', 'watch', 'browser-sync']);
 gulp.task('test', ['browser-sync', 'test:perf', 'test:complexity']);
-gulp.task('deploy', ['css', 'jade', 'js', 'images', 'pages']);
+gulp.task('deploy', ['css', 'pug', 'js', 'images', 'pages']);

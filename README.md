@@ -1,10 +1,10 @@
 <img src="https://raw.githubusercontent.com/willianjusten/qualy/master/src/img/qualy.png" alt="Qualy">
 
-This projects uses ES6, Jade, Stylus, Gulp and Browsersync. The main objective of this boilerplate is to ensure Quality to our code with Code Standards and Hooks to prevent messy codes to be committed or pushed.
+This projects uses ES6, Pug, Stylus, Gulp and Browsersync. The main objective of this boilerplate is to ensure Quality to our code with Code Standards and Hooks to prevent messy codes to be committed or pushed.
 
 Maybe you want to read about them:
 - [GulpJS](http://gulpjs.com/)
-- [Jade](http://jade-lang.com/)
+- [Pug](https://pugjs.org/)
 - [Stylus](http://learnboost.github.io/stylus/)
 - [Browsersync](https://www.browsersync.io/)
 
@@ -22,8 +22,8 @@ First of all, install the dependencies to run this boilerplate.
 
 ```sh
 # Clone this repository
-$ git clone git@github.com:Qualy-org/qualy.git
-$ cd qualy
+$ git clone git@github.com:Qualy-org/qualy-front.git
+$ cd qualy-front
 
 # install dependencies
 $ npm install
@@ -39,7 +39,8 @@ With the commands above, you have everything to start.
 │   ├── css
 │   │   └── main.css
 │   ├── img
-│   │   └── eventos.jpg
+│   │   └── qualy.png
+│   │   └── favicon.png
 │   ├── index.html
 │   └── js
 │       └── main.js
@@ -47,7 +48,8 @@ With the commands above, you have everything to start.
 ├── package.json
 └── src
     ├── img
-    │   └── eventos.jpg
+    │   └── qualy.png
+    │   └── favicon.png
     ├── js
     │   ├── main.js
     ├── styl
@@ -67,7 +69,7 @@ With the commands above, you have everything to start.
     │   |   └── _trumps.styl
     │   └── main.styl
     └── templates
-        └── index.jade
+        └── index.pug
 ```
 
 Those folders and file will change during the project.
@@ -84,7 +86,7 @@ To help you, this project has a `npm run fix` command to fix all jscs errors.
 
 - `gulp`: run all tasks and initialize watch for changes and a server
 - `gulp js`: execute js files
-- `gulp jade`: compile jade files
+- `gulp pug`: compile pug files
 - `gulp css`: compile stylus files
 - `gulp images`: compress image files
 - `gulp browser-sync`: inicialize a server
