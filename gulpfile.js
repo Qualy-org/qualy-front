@@ -86,7 +86,7 @@ gulp.task('pug', () => {
         .pipe(plumber())
         .pipe(data(dataJson))
         .pipe(pug({
-            pretty: true
+            pretty: false
         }))
         .pipe(gulp.dest(buildPaths.pug));
 });
