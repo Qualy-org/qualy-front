@@ -1,0 +1,28 @@
+-
+  name: ES6
+  href: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Suporte_ao_ECMAScript_6_na_Mozilla
+  external: true
+-
+  name: Gulp
+  href: https://github.com/pugjs/pug
+  external: true
+-
+  name: Stylus
+  href: http://stylus-lang.com/
+  external: true
+-
+  name: Pug
+  href: https://github.com/pugjs/pug
+  external: true
+-
+  name: Browsersync
+  href: https://www.browsersync.io/
+  external: true
+-
+  name: Husky Hooks
+  href: https://github.com/typicode/husky
+  external: true
+-
+  name: JSCS
+  href: http://jscs.info/
+  external: true

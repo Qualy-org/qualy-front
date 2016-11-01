@@ -44,9 +44,12 @@ With the commands above, you have everything to start.
 │   ├── index.html
 │   └── js
 │       └── main.js
-├── gulpfile.babel.js
+├── gulpfile.js
 ├── package.json
 └── src
+    ├── data
+    │   └── config.yml
+    │   └── tech.yml
     ├── img
     │   └── qualy.png
     │   └── favicon.png

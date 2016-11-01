@@ -13,6 +13,8 @@ const prefixer = require('autoprefixer-stylus');
 const rollup = require('gulp-rollup');
 const uglify = require('gulp-uglify');
 const pug = require('gulp-pug');
+const data = require('gulp-data');
+const yaml = require('js-yaml');
 const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync');
 const ghPages = require('gulp-gh-pages');
@@ -20,13 +22,15 @@ const sitespeedio = require('gulp-sitespeedio');
 const plato = require('gulp-plato');
 const rollupConfig = require('./rollup.config');
 const eslintConfig = require('./.eslintrc');
+const fs = require('fs');
 
 const srcPaths = {
     js: 'src/js/main.js',
     css: 'src/styl/**/*.styl',
     mainStyl: 'src/styl/main.styl',
     pug: 'src/templates/**/!(_)*.pug',
-    img: 'src/img/**/*'
+    img: 'src/img/**/*',
+    data: 'src/data/'
 };
 
 const buildPaths = {
@@ -40,6 +44,20 @@ const buildPaths = {
         complexity: 'tests/complexity'
     }
 };
+
+let dataJson = {}
+let files = []
+
+gulp.task('read:data', () => {
+    fs.readdir(srcPaths.data, (err, items) => {
+        for (var i = 0; i < items.length; i++) {
+            files.push(items[i].split('.')[0]);
+        }
+        for (var i = 0; i < files.length; i++) {
+            dataJson[files[i]] = yaml.safeLoad(fs.readFileSync(srcPaths.data + '/' + files[i] + '.yml', 'utf-8'));
+        }
+    });
+});
 
 gulp.task('css', () => {
     gulp.src(srcPaths.mainStyl)
@@ -66,7 +84,10 @@ gulp.task('js', () => {
 gulp.task('pug', () => {
     gulp.src(srcPaths.pug)
         .pipe(plumber())
-        .pipe(pug())
+        .pipe(data(dataJson))
+        .pipe(pug({
+            pretty: true
+        }))
         .pipe(gulp.dest(buildPaths.pug));
 });
 
@@ -82,7 +103,8 @@ gulp.task('images', () => {
 });
 
 gulp.task('watch', () => {
-    gulp.watch(srcPaths.pug, ['pug']);
+    gulp.watch(srcPaths.pug, { debounceDelay: 300 }, ['pug']);
+    gulp.watch(srcPaths.data + '**/*', { debounceDelay: 300 }, ['read:data', 'pug']);
     gulp.watch(srcPaths.css, ['css']);
     gulp.watch(srcPaths.js, ['js']);
     gulp.watch(srcPaths.img, ['images']);
@@ -124,6 +146,6 @@ gulp.task('test:complexity', () => gulp.src(srcPaths.js)
         }
 })));
 
-gulp.task('default', ['css', 'pug', 'js', 'images', 'watch', 'browser-sync']);
+gulp.task('default', ['css', 'pug', 'read:data', 'js', 'images', 'watch', 'browser-sync']);
 gulp.task('test', ['browser-sync', 'test:perf', 'test:complexity']);
-gulp.task('deploy', ['css', 'pug', 'js', 'images', 'pages']);
+gulp.task('deploy', ['css', 'pug', 'read:data', 'js', 'images', 'pages']);

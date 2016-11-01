@@ -1,0 +1,4 @@
+title: "Qualy Boilerplate"
+description: "A simple boilerplate with ES6, Gulp, Pug, Stylus and Browsersync."
+analytics:
+  ga: "UA-000000-0"
